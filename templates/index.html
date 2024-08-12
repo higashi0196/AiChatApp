@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AIアプリ開発</title>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+	<h3>AI アプリ開発だぜ</h3>
+	<form action="/" method="post">
+		<input type="text" name="animal" placeholder="ペットの種類を入力" required />
+		<input type="submit" value="名前を生成" />
+	</form>
+	{% if result %}
+        <h2>生成された名前:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
