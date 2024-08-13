@@ -4,17 +4,19 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AIアプリ開発</title>
-	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 <body>
-	<h3>AI アプリ開発だぜ</h3>
+	<h3>AI アプリ開発</h3>
 	<form action="/" method="post">
-		<input type="text" name="animal" placeholder="ペットの種類を入力" required />
-		<input type="submit" value="名前を生成" />
+		<input type="text" name="animal" class="first-input" placeholder="入力" required />
+		<input type="submit" value="生成" class="create-btn" />
 	</form>
 	{% if result %}
-        <h2>生成された名前:</h2>
-        <p>{{ result }}</p>
+        <p class="title"> ◾️ 生成された名前 ◾️ </p>
+        <p class="result">
+			{{ result }}
+		</p>
     {% endif %}
 </body>
 </html>
