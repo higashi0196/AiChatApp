@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template
 import openai
+import re
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -17,9 +18,13 @@ def index():
             ],
             temperature=0.6,
         )
-        return redirect(url_for("index", result=response.choices[0].message['content']))
+        
+        tempresult = response.choices[0].message['content']
+        result_text = re.sub(r'(\d+)\.', r'\n\1.', tempresult)
+
+        return redirect(url_for("index", result=result_text))
     
-    result = request.args.get("result")     
+    result = request.args.get("result","")
     return render_template("index.html", result=result)
 
 if __name__ == "__main__":
