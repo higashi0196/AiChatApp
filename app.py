@@ -19,8 +19,8 @@ def index():
             temperature=0.6,
         )
         
-        tempresult = response.choices[0].message['content']
-        result_text = re.sub(r'(\d+)\.', r'\n\1.', tempresult)
+        msg = response.choices[0].message['content']
+        result_text = re.sub(r'(\d+)\.', r'\n\1.', msg)
 
         return redirect(url_for("index", result=result_text))
     
