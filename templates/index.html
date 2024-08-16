@@ -5,18 +5,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AIアプリ開発</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+	<link rel="icon" href="{{ url_for('static', filename='cookingicon.jpg') }}" type="image/jpg">
 </head>
 <body>
 	<p class="apptitle">AI アプリ開発</p>
+	<p class="title"> 今日のご飯の献立は？ </p>
+	<p class="subtitle">
+		どういった料理が食べたいかを入力すると<br>
+		AIが料理のアイデアを出してくれますよ！
+	</p>
+	<p class="ex">例：中華料理、揚げ物料理など...</p>
 	<form action="/" method="post">
-		<input type="text" name="animal" class="first-input" placeholder="入力" required />
+		<input type="text" name="food" class="first-input" placeholder="入力" required />
 		<input type="submit" value="献立を生成" class="create-btn" />
 	</form>
-        {% if result %}
-            <p class="title"> ◾️ 今日のご飯の献立は？ ◾️ </p>
-            <p class="result">
+        <p class="result">
+            {% if result %}
                 {{ result }}
-            </p>
-        {% endif %}
+            {% endif %}
+        </p>
 </body>
 </html>

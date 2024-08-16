@@ -9,12 +9,12 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        animal = request.form["animal"]
+        food = request.form["food"]
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "あなたは賢いAIです。"},
-                {"role": "user", "content": f"{animal}の名前を3個考えてください"}
+                {"role": "system", "content": "あなたは料理のアイデアを出す賢いAIです。"},
+                {"role": "user", "content": f"{food}の料理を3個考えてください"}
             ],
             temperature=0.6,
         )
