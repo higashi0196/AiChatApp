@@ -17,11 +17,12 @@
 		<img src="{{ url_for('static', filename='dish.jpg') }}" alt="">
 		<p class="ex">例：中華料理、揚げ物料理など..</p>
 	</div>
+	<!-- 入力欄/ボタン -->
 	<form action="/" method="post">
 		<input type="text" name="food" class="first-input" placeholder="食べたい料理を入力" required />
 		<input type="submit" value="メニューを考案" class="create-btn" />
 	</form>
-	<p class="title"> 今日のご飯のメニューは？</p>
+	<p class="menu"> 今日のご飯のメニューは？</p>
     <p class="result">
         {% if result %}
             {{ result }}
